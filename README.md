@@ -4,21 +4,16 @@
 
 ```bash
  lib
+ ├── api
+ │   └── utils.dart
  ├── core
  │   ├── error
  │   │   ├── exceptions.dart
  │   │   └── failures.dart
- │   ├── platform
- │   │   └── network_info.dart
- │   ├── usecases
- │   │   ├── fetch_token.dart
- │   │   └── usecase.dart
- │   ├── utils
- │   │   ├── constants.dart
- │   │   ├── router.dart
- │   │   └── theme.dart
- │   └── widgets
- │       └── custom_snak_bar.dart
+ │   └── platform
+ │       └── network_info.dart
+ ├── common
+ │   └── utils.dart
  ├── injection_container.dart
  ├── main.dart
  └── feautures
