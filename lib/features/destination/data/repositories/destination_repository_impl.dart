@@ -7,7 +7,7 @@ import 'package:travel_course/features/destination/data/datasourse/destination_l
 import 'package:travel_course/features/destination/data/datasourse/destination_remote_datasource.dart';
 import 'package:travel_course/features/destination/domain/entities/destination_entity.dart';
 import 'package:travel_course/features/destination/domain/repositories/destination_repositories.dart';
-import '../../../../core/platform/network.dart';
+import '../../../../core/platform/network_info.dart';
 
 class DestinationRepositoryImpl implements DestinationRepository {
   final NetworkInfo networkInfo;

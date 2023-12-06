@@ -1,8 +1,6 @@
-# travel_course
+# Travel Project on Clean Architecture
 
-A new Flutter project.
-
-# File Structure
+## File Structure
 
 ```bash
  lib
@@ -24,7 +22,7 @@ A new Flutter project.
  ├── injection_container.dart
  ├── main.dart
  └── feautures
-     ├── destination
+     └── destination
          ├── data
          │   ├── datasources
          │   │   ├── destination_local_datasource.dart
@@ -44,15 +42,35 @@ A new Flutter project.
          │       ├── get_top_destination_usecase.dart
          │       └── search_destination_usecase.dart
          └── presentation
-             ├── blocs
-             │   └── change_password
-             │       ├── bloc.dart
-             │       ├── change_password_bloc.dart
-             │       ├── change_password_event.dart
-             │  
-             └── cubit
-                 └── change_password.dart
-
+             ├── bloc
+             │   ├── all_destination
+             │   │   ├── all_destination_event.dart
+             │   │   ├── all_destination_bloc.dart
+             │   │   └── all_destination_state.dart
+             │   │
+             │   ├── search_destination
+             │   │   ├── seacrh_destination_bloc.dart
+             │   │   ├── seacrh_destination_event.dart
+             │   │   └── seacrh_destination_state.dart
+             │   └── top_destination
+             │       ├── top_destination_bloc.dart
+             │       ├── top_destination_event.dart
+             │       └── top_destination_state.dart
+             ├── cubit
+             │   └── dashboard_cubit.dart
+             ├── pages
+             │   ├── dashboard.dart
+             │   ├── detail_destination_page.dart
+             │   ├── get_all_destination_usecase.dart
+             │   └── search_destination_usecase.dart
+             └── widgets
+                 ├── circle_loading.dart
+                 ├── galery_photo.dart
+                 ├── parallax_horiz_delegate.dart
+                 ├── parallax_vert_delegate.dart
+                 ├── text_failure.dart
+                 └── top_destination_image.dart
+               
 ```
 
 <br />
