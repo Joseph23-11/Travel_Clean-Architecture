@@ -8,7 +8,8 @@ class SearchDestinationUseCase {
 
   SearchDestinationUseCase(this._repository);
 
-  Future<Either<Failure, List<DestinationEntity>>> call() {
-    return _repository.top();
+  Future<Either<Failure, List<DestinationEntity>>> call(
+      {required String query}) {
+    return _repository.search(query);
   }
 }
