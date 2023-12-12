@@ -22,12 +22,23 @@ class SearchDestinationPage extends StatefulWidget {
 class _SearchDestinationPageState extends State<SearchDestinationPage> {
   final edtSearch = TextEditingController();
   late List<DestinationEntity> allDestinations;
+  bool showCloseButton = false;
 
   @override
   void initState() {
     context.read<AllDestinationBloc>().add(OnGetAllDestination());
     context.read<SearchDestinationBloc>().add(OnResetSearchDestination());
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    edtSearch.addListener(() {
+      setState(() {
+        showCloseButton = edtSearch.text.isNotEmpty;
+      });
+    });
   }
 
   search() {
@@ -263,28 +274,50 @@ class _SearchDestinationPageState extends State<SearchDestinationPage> {
               size: 24,
             ),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 4),
           Expanded(
-            child: TextField(
-              controller: edtSearch,
-              decoration: const InputDecoration(
-                isDense: true,
-                border: InputBorder.none,
-                hintText: 'Search destination here...',
-                hintStyle: TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w400,
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: edtSearch,
+                    decoration: const InputDecoration(
+                      isDense: true,
+                      border: InputBorder.none,
+                      hintText: 'Search destination here...',
+                      hintStyle: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      contentPadding: EdgeInsets.all(0),
+                    ),
+                    cursorColor: Colors.white,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 ),
-                contentPadding: EdgeInsets.all(0),
-              ),
-              cursorColor: Colors.white,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w400,
-              ),
+                Visibility(
+                  visible: showCloseButton,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        edtSearch.clear();
+                      });
+                    },
+                    child: const Icon(
+                      Icons.close_rounded,
+                      color: Colors.white54,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(
+            width: 2,
+          ),
           IconButton.filledTonal(
             onPressed: () => search(),
             icon: const Icon(
