@@ -362,7 +362,7 @@ class _HomePageState extends State<HomePage> {
                     IconButton(
                       onPressed: () {},
                       icon: const Icon(Icons.favorite_border),
-                    ),
+                    )
                   ],
                 ),
               ],
