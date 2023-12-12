@@ -3,6 +3,7 @@ import 'package:travel_course/features/destination/presentation/pages/dashboard.
 
 import '../features/destination/domain/entities/destination_entity.dart';
 import '../features/destination/presentation/pages/detail_destination_page.dart';
+import '../features/destination/presentation/pages/search_destination_page.dart';
 
 class AppRoute {
   static const dashboard = '/';
@@ -24,10 +25,10 @@ class AppRoute {
             destination: destination,
           ),
         );
-      // case searchDestination:
-      //   return MaterialPageRoute(
-      //     builder: (context) => const SearchDestinationPage(),
-      //   );
+      case searchDestination:
+        return MaterialPageRoute(
+          builder: (context) => const SearchDestinationPage(),
+        );
       default:
         return _notFoundPage;
     }
